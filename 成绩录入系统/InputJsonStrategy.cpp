@@ -24,7 +24,7 @@ void InputJsonStrategy::DoAlgorithm()
 		return;
 	}
 
-	Student student;
+	Student student("");
 	std::string line;
 	bool bIsEffectiveName = false;
 	while (getline(infile, line))
@@ -38,25 +38,40 @@ void InputJsonStrategy::DoAlgorithm()
 			field.erase(std::remove(field.begin(), field.end(), '"'), field.end());
 			fields.emplace_back(field);
 		}
+		for (int i = 0; i < fields.size(); i++)
+		{
+			std::cout << fields[i] << ' ';
+		}
+		std::cout << std::endl;
 		if (fields[0] == "name")
 		{
 			fields[1].pop_back();
 			bIsEffectiveName = fields[1] != "";
 			if (bIsEffectiveName) { student.SetName(fields[1]); }
 		}
-		else if (fields[0] == "chinese" && bIsEffectiveName)
+		if (bIsEffectiveName)
 		{
-			student.SetChinese(atoi(fields[1].c_str()));
-		}
-		else if (fields[0] == "english" && bIsEffectiveName)
-		{
-			student.SetEnglish(atoi(fields[1].c_str()));
-		}
-		else if (fields[0] == "math" && bIsEffectiveName)
-		{
-			student.SetMath(atoi(fields[1].c_str()));
-			student.UpdateTotal();
-			StudentController::GetInstance()->InsertStudent(student);
+			if (fields[0] == "chinese")
+			{
+				student.SetChinese(atoi(fields[1].c_str()));
+			}
+			else if (fields[0] == "english")
+			{
+				student.SetEnglish(atoi(fields[1].c_str()));
+			}
+			else if (fields[0] == "math")
+			{
+				student.SetMath(atoi(fields[1].c_str()));
+				student.UpdateTotal();
+			}
+			else if (fields[0] == "},")
+			{
+				StudentController::GetInstance()->InsertStudent(student);
+				student.SetChinese(0);
+				student.SetEnglish(0);
+				student.SetMath(0);
+				student.UpdateTotal();
+			}
 		}
 	}
 	StudentController::GetInstance()->CalcStudent();

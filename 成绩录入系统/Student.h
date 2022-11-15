@@ -26,8 +26,6 @@ public:
 	{
 		m_Total = m_Chinese + m_English + m_Math;
 	}
-
-	Student() {}
 	
 	~Student() {}
 

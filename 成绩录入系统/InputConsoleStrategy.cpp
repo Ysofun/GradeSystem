@@ -28,11 +28,11 @@ void InputConsoleStrategy::DoAlgorithm()
 		{
 			fields.emplace_back(field);
 		}
-		if (fields[0] != "")
+		if (fields.size() != 0 && fields[0] != "")
 		{
-			int chinese = atoi(fields[1].c_str());
-			int english = atoi(fields[2].c_str());
-			int math = atoi(fields[3].c_str());
+			int chinese = fields.size() >= 2 ? atoi(fields[1].c_str()) : 0;
+			int english = fields.size() >= 3 ? atoi(fields[2].c_str()) : 0;
+			int math = fields.size() == 4 ? atoi(fields[3].c_str()) : 0;
 			StudentController::GetInstance()->InsertStudent(Student(fields[0], chinese, english, math));
 		}
 	}

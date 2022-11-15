@@ -22,8 +22,8 @@ void OutputCsvStrategy::DoAlgorithm(ScoreValue SubjectScore[])
 	outfile << "科目,最高分,最低分,平均分" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		outfile << SubjectScore[i].Subject << ',' << SubjectScore[i].MaxValue << ',' << SubjectScore[i].MinValue
-			<< SubjectScore[i].AverageValue << std::endl;
+		outfile << SubjectScore[i].Subject << ',' << SubjectScore[i].MaxValue << ',' << 
+			SubjectScore[i].MinValue << ',' << SubjectScore[i].AverageValue << std::endl;
 	}
 }
 
