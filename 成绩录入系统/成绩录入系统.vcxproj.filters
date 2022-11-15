@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Strategy">
+      <UniqueIdentifier>{be62a3bf-ee9c-4046-acec-aa7db0645f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Strategy">
+      <UniqueIdentifier>{cf0b98ea-e039-45ca-8223-9de15ea6968b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Factory">
+      <UniqueIdentifier>{5e123ad9-aa5f-4095-a194-bb2624be8040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Factory">
+      <UniqueIdentifier>{4b264cb6-947b-402d-8030-9df13c822437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Result">
+      <UniqueIdentifier>{3a37ce01-445d-42ce-aa0b-b2d799d5f796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Source">
+      <UniqueIdentifier>{e5b21860-25df-4445-a3a2-6ac665b4fee1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Student.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentModel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonInstance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InputStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="InputConsoleStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="InputCsvStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="InputJsonStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionLibrary.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputCsvStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputHtmlStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreValue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputStrategy.h">
+      <Filter>头文件\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="InputStrategyFactory.h">
+      <Filter>头文件\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputStrategyFactory.h">
+      <Filter>头文件\Factory</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StudentModel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InputJsonStrategy.cpp">
+      <Filter>源文件\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="InputCsvStrategy.cpp">
+      <Filter>源文件\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="InputConsoleStrategy.cpp">
+      <Filter>源文件\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputCsvStrategy.cpp">
+      <Filter>源文件\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputHtmlStrategy.cpp">
+      <Filter>源文件\Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="InputStrategyFactory.cpp">
+      <Filter>源文件\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputStrategyFactory.cpp">
+      <Filter>源文件\Factory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Result\数学Result.csv">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\数学Result.html">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\英语Result.csv">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\英语Result.html">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\语文Result.csv">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\语文Result.html">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\总分Result.csv">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\总分Result.html">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\Result.csv">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Result\Result.html">
+      <Filter>资源文件\Result</Filter>
+    </None>
+    <None Include="Source\Test.csv">
+      <Filter>资源文件\Source</Filter>
+    </None>
+    <None Include="Source\Test.json">
+      <Filter>资源文件\Source</Filter>
+    </None>
+  </ItemGroup>
+</Project>

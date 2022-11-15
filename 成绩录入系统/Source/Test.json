@@ -1,0 +1,29 @@
+{
+  "students": 
+  [
+    {
+      "name": "rooike",
+      "chinese": 98,
+      "english": 89,
+      "math": 88
+    },
+    {
+      "name": "langx",
+      "chinese": 79,
+      "english": 82,
+      "math": 76
+    },
+    {
+      "name": "faker",
+      "chinese": 98,
+      "english": 94,
+      "math": 95
+    },
+    {
+      "name": "",
+      "chinese": 49,
+      "english": 35,
+      "math": 100
+    }
+  ]
+}
