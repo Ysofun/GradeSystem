@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-
+/* 学生类具有学生所需的基本属性 */
 class Student
 {
 private:

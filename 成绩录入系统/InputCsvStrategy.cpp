@@ -8,11 +8,6 @@
 #include "StudentController.h"
 
 
-InputCsvStrategy::~InputCsvStrategy()
-{
-
-}
-
 void InputCsvStrategy::DoAlgorithm()
 {
 	std::cout << "请输入csv文件路径" << std::endl;

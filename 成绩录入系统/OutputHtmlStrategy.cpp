@@ -5,11 +5,6 @@
 #include <functional>
 #include "Student.h"
 
-void OutputHtmlStrategy::DoAlgorithm()
-{
-	
-}
-
 void OutputHtmlStrategy::DoAlgorithm(ScoreValue SubjectScore[])
 {
 	std::ofstream outfile("Result/Result.html");

@@ -6,12 +6,6 @@
 #include "Student.h"
 #include "FunctionLibrary.h"
 
-
-InputConsoleStrategy::~InputConsoleStrategy()
-{
-	std::cout << "ConsoleStrategy Destructor" << std::endl;
-}
-
 void InputConsoleStrategy::DoAlgorithm()
 {
 	std::cout << "请按照姓名,语文,英语,数学的格式输入" << std::endl;

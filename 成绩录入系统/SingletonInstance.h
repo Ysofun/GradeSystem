@@ -2,6 +2,7 @@
 #include <mutex>
 
 
+/* 单例模式基类 */
 template<typename T>
 class SingletonInstance
 {
@@ -11,6 +12,7 @@ public:
 	SingletonInstance(const SingletonInstance&) = delete;
 	const SingletonInstance& operator=(const SingletonInstance&) = delete;
 
+	/* 懒汉式实现 */
 	static T*& GetInstance() noexcept(std::is_nothrow_constructible<T>::value)
 	{
 		if (m_Instance == nullptr)

@@ -8,13 +8,13 @@
 
 StudentController::StudentController()
 {
-
+	m_StudentModel = nullptr;
+	m_StudentView = nullptr;
 }
 
 StudentController::~StudentController()
 {
-	delete m_StudentModel;
-	delete m_StudentView;
+
 }
 
 void StudentController::Init(StudentModel* studentModel, StudentView* studentView)

@@ -4,6 +4,7 @@
 #include "OutputStrategyFactory.h"
 
 
+/* 数据输入 */
 void StudentView::GetDataInput()
 {
 	std::cout << "请输入文件录入方式：Console/Csv/Json" << std::endl;
@@ -13,6 +14,7 @@ void StudentView::GetDataInput()
 	InputStrategyFactory::GetInstance()->ExecuteStrategy(m_InputFileType);
 }
 
+/* 数据输出 */
 void StudentView::PrintData(ScoreValue SubjectScore[])
 {
 	OutputStrategyFactory::GetInstance()->ExecuteStrategy(m_OutputFileType, SubjectScore);

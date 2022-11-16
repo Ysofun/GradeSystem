@@ -1,10 +1,10 @@
 #pragma once
 #include "InputStrategy.h"
 
+/* Csv ‰»Î */
 class InputCsvStrategy : public InputStrategy
 {
 
 public:
-	~InputCsvStrategy() override;
 	void DoAlgorithm() override;
 };

@@ -1,10 +1,10 @@
 #pragma once
 #include "InputStrategy.h"
 
+/* Console ‰»Î */
 class InputConsoleStrategy : public InputStrategy
 {
 public:
-	~InputConsoleStrategy() override;
 	void DoAlgorithm() override;
 
 };

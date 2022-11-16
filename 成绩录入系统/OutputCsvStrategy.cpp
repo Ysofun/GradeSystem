@@ -5,11 +5,6 @@
 #include <functional>
 #include "Student.h"
 
-void OutputCsvStrategy::DoAlgorithm()
-{
-
-}
-
 void OutputCsvStrategy::DoAlgorithm(ScoreValue SubjectScore[])
 {
 	std::ofstream outfile("Result/Result.csv");

@@ -7,10 +7,6 @@
 #include <vector>
 #include "StudentController.h"
 
-InputJsonStrategy::~InputJsonStrategy()
-{
-
-}
 
 void InputJsonStrategy::DoAlgorithm()
 {

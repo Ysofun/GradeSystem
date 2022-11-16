@@ -1,3 +1,7 @@
+/*
+* 详细介绍可在README.txt文件中查阅
+*/
+
 #include "StudentController.h"
 #include "StudentModel.h"
 #include "StudentView.h"

@@ -14,6 +14,7 @@ StudentModel::~StudentModel()
 	IdxOfStudent.clear();
 }
 
+/* 插入数据并检测是否已存在，若存在则修改 */
 void StudentModel::InsertData(Student student)
 {
 	std::map<std::string, int>::iterator it;
@@ -31,11 +32,13 @@ void StudentModel::InsertData(Student student)
 	}
 }
 
+/* 获得数组 */
 std::vector<Student>& StudentModel::GetStudentArray()
 {
 	return Students;
 }
 
+/* 获得数组大小 */
 int StudentModel::GetSize() const
 {
 	return Students.size();

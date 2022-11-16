@@ -5,6 +5,8 @@
 
 #pragma region 模板函数
 // 模板函数定义和声明都必须要在.h文件中
+
+/* 使用lambda表达式和泛型定义的快速排序函数 */
 template<typename T>
 void QuickSort(std::vector<T>& SourceArray, int l, int r, const std::function<bool(T, T)>& cmp)
 {
@@ -29,6 +31,7 @@ void QuickSort(std::vector<T>& SourceArray, int l, int r, const std::function<bo
 	QuickSort(SourceArray, i + 1, r, cmp);
 }
 
+/* 使用lambda表达式和泛型定义的求最大值函数 */
 template<typename T>
 int GetMaxValue(const std::vector<T>& SourceArray, const std::function<int(T)>& GetValue)
 {
@@ -40,6 +43,7 @@ int GetMaxValue(const std::vector<T>& SourceArray, const std::function<int(T)>& 
 	return MaxValue;
 }
 
+/* 使用lambda表达式和泛型定义的求最小值函数 */
 template<typename T>
 int GetMinValue(const std::vector<T>& SourceArray, const std::function<int(T)>& GetValue)
 {
@@ -51,6 +55,7 @@ int GetMinValue(const std::vector<T>& SourceArray, const std::function<int(T)>& 
 	return MinValue;
 }
 
+/* 使用lambda表达式和泛型定义的求平均值函数 */
 template<typename T>
 float GetAverageValue(const std::vector<T>& SourceArray, const std::function<int(T)>& GetValue)
 {

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+/* 学科成绩数据 */
 struct ScoreValue
 {
 	std::string Subject;
