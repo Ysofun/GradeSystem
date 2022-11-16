@@ -35,7 +35,7 @@ public:
 	inline int GetMath() const { return m_Math; }
 	inline int GetTotal() const { return m_Total; }
 
-	void SetName(std::string name) { m_Name = name; }
+	void SetName(const std::string& name) { m_Name = name; }
 	void SetChinese(int chinese) { m_Chinese = chinese; }
 	void SetEnglish(int english) { m_English = english; }
 	void SetMath(int math) { m_Math = math; }

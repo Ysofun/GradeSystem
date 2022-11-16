@@ -42,10 +42,18 @@ OutputStrategy* OutputStrategyFactory::GetStrategy(const std::string& name)
 
 void OutputStrategyFactory::ExecuteStrategy(const std::string& name, ScoreValue SubjectScore[])
 {
-	GetStrategy(name)->DoAlgorithm(SubjectScore);
+	auto Strategy = GetStrategy(name);
+	if (Strategy != nullptr)
+	{
+		Strategy->DoAlgorithm(SubjectScore);
+	}
 }
 
 void OutputStrategyFactory::ExecuteStrategy(const std::string& name, const std::string& Subject, const std::vector<Student>& Students)
 {
-	GetStrategy(name)->DoAlgorithm(Subject, Students);
+	auto Strategy = GetStrategy(name);
+	if (Strategy != nullptr)
+	{
+		Strategy->DoAlgorithm(Subject, Students);
+	}
 }

@@ -38,11 +38,7 @@ void InputJsonStrategy::DoAlgorithm()
 			field.erase(std::remove(field.begin(), field.end(), '"'), field.end());
 			fields.emplace_back(field);
 		}
-		for (int i = 0; i < fields.size(); i++)
-		{
-			std::cout << fields[i] << ' ';
-		}
-		std::cout << std::endl;
+
 		if (fields[0] == "name")
 		{
 			fields[1].pop_back();
@@ -62,15 +58,15 @@ void InputJsonStrategy::DoAlgorithm()
 			else if (fields[0] == "math")
 			{
 				student.SetMath(atoi(fields[1].c_str()));
-				student.UpdateTotal();
 			}
-			else if (fields[0] == "},")
+			else if (fields[0] == "}," || fields[0] == "}")
 			{
 				StudentController::GetInstance()->InsertStudent(student);
+				bIsEffectiveName = false;
+				student.SetName("");
 				student.SetChinese(0);
 				student.SetEnglish(0);
 				student.SetMath(0);
-				student.UpdateTotal();
 			}
 		}
 	}

@@ -45,5 +45,9 @@ InputStrategy* InputStrategyFactory::GetStrategy(const std::string& name)
 
 void InputStrategyFactory::ExecuteStrategy(const std::string& name)
 {
-	GetStrategy(name)->DoAlgorithm();
+	auto Strategy = GetStrategy(name);
+	if (Strategy != nullptr)
+	{
+		Strategy->DoAlgorithm();
+	}
 }

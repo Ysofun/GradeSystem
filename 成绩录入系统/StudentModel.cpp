@@ -25,6 +25,7 @@ void StudentModel::InsertData(Student student)
 	}
 	else
 	{
+		student.UpdateTotal();
 		Students.emplace_back(student);
 		IdxOfStudent[student.GetName()] = Students.size() - 1;
 	}
