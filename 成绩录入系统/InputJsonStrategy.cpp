@@ -39,9 +39,9 @@ void InputJsonStrategy::DoAlgorithm()
 			fields.emplace_back(field);
 		}
 
-		if (fields[0] == "name")
-		{
-			fields[1].pop_back();
+		if (fields[0] == "name" && fields.size() == 2)
+		{ 
+			if (fields[1].back() == ',') { fields[1].pop_back(); }
 			bIsEffectiveName = fields[1] != "";
 			if (bIsEffectiveName) { student.SetName(fields[1]); }
 		}

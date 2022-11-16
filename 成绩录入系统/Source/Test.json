@@ -1,6 +1,5 @@
 {
-  "students": 
-  [
+  "students": [
     {
       "name": "rooike",
       "english": 89,
@@ -26,7 +25,22 @@
       "name": "rooike",
       "chinese": 98,
       "english": 95,
-      "math": 89
+      "math": 97
+    },
+    {
+      "name": "baolan",
+      "chinese": 88,
+      "english": 66,
+      "math": 55
+    },
+    {
+      "name": "ning"
+    },
+    {
+      "name": "leyan",
+      "chinese": 55,
+      "english": 78,
+      "math": 42
     }
   ]
 }
