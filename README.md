@@ -1,6 +1,6 @@
 # GradeSystem
 
-##version 1.0
+## version 1.0
 实现系统基本功能
 
 ## version 1.1
