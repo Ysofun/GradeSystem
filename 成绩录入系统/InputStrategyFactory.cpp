@@ -4,43 +4,18 @@
 #include "InputCsvStrategy.h"
 #include "InputJsonStrategy.h"
 
-
-InputStrategyFactory::InputStrategyFactory()
-{
-	m_StrategyRegistry.clear();
-}
-
-InputStrategyFactory::~InputStrategyFactory()
-{
-	m_StrategyRegistry.clear();
-}
-
-void InputStrategyFactory::InitStrategy()
-{
-	InputConsoleStrategy* console = new InputConsoleStrategy();
-	InputCsvStrategy* csv = new InputCsvStrategy();
-	InputJsonStrategy* json = new InputJsonStrategy();
-	RegisterStrategy("Console", console);
-	RegisterStrategy("Csv", csv);
-	RegisterStrategy("Json", json);
-}
-
-void InputStrategyFactory::RegisterStrategy(const std::string& name, InputStrategy* strategy)
-{
-	m_StrategyRegistry[name] = strategy;
-}
+REGISTER_STRATEGY(InputConsoleStrategy, "Console");
+REGISTER_STRATEGY(InputCsvStrategy, "Csv");
+REGISTER_STRATEGY(InputJsonStrategy, "Json");
 
 InputStrategy* InputStrategyFactory::GetStrategy(const std::string& name)
 {
-	std::map<std::string, InputStrategy*>::iterator it;
-
-	it = m_StrategyRegistry.find(name);
-	if (it != m_StrategyRegistry.end())
+	if (m_StrategyRegistry.find(name) == m_StrategyRegistry.end())
 	{
-		return it->second;
+		throw std::invalid_argument("This name id not exist!");
 	}
 
-	return nullptr;
+	return m_StrategyRegistry[name]();
 }
 
 void InputStrategyFactory::ExecuteStrategy(const std::string& name)

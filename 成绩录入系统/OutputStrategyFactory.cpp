@@ -4,40 +4,16 @@
 #include "OutputCsvStrategy.h"
 #include "OutputHtmlStrategy.h"
 
-
-OutputStrategyFactory::OutputStrategyFactory()
-{
-	m_StrategyRegistry.clear();
-}
-
-OutputStrategyFactory::~OutputStrategyFactory()
-{
-	m_StrategyRegistry.clear();
-}
-
-void OutputStrategyFactory::InitStrategy()
-{
-	OutputCsvStrategy* csv = new OutputCsvStrategy();
-	OutputHtmlStrategy* html = new OutputHtmlStrategy();
-	RegisterStrategy("Csv", csv);
-	RegisterStrategy("Html", html);
-}
-
-void OutputStrategyFactory::RegisterStrategy(const std::string& name, OutputStrategy* strategy)
-{
-	m_StrategyRegistry[name] = strategy;
-}
+REGISTER_STRATEGY(OutputCsvStrategy, "Csv");
+REGISTER_STRATEGY(OutputHtmlStrategy, "Html");
 
 OutputStrategy* OutputStrategyFactory::GetStrategy(const std::string& name)
 {
-	std::map<std::string, OutputStrategy*>::iterator it;
-	it = m_StrategyRegistry.find(name);
-
-	if (it != m_StrategyRegistry.end())
+	if (m_StrategyRegistry.find(name) == m_StrategyRegistry.end())
 	{
-		return it->second;
+		throw std::invalid_argument("This name is not exist!");
 	}
-	return nullptr;
+	return m_StrategyRegistry[name]();
 }
 
 void OutputStrategyFactory::ExecuteStrategy(const std::string& name, ScoreValue SubjectScore[])

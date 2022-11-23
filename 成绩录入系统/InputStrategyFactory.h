@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include "SingletonInstance.h"
+#include <functional>
 
 class InputStrategy;
 
@@ -10,15 +11,19 @@ class InputStrategyFactory : public SingletonInstance<InputStrategyFactory>
 {
 	friend class SingletonInstance<InputStrategyFactory>;
 public:
-	~InputStrategyFactory();
+	~InputStrategyFactory() = default;
 	InputStrategyFactory(const InputStrategyFactory&) = delete;
 	const InputStrategyFactory& operator=(const InputStrategyFactory&) = delete;
 
-	/* 初始化所有输入策略 */
-	void InitStrategy();
-
-	/* 将输入策略注册到map中 */
-	void RegisterStrategy(const std::string& name, InputStrategy* strategy);
+	template<typename T>
+	struct RegisterTool
+	{
+		template<typename... Args>
+		RegisterTool(const std::string& name, Args... args)
+		{
+			InputStrategyFactory::GetInstance()->m_StrategyRegistry.emplace(name, [=] { return new T(args...); });
+		}
+	};
 	
 	/* 获得输入策略 */
 	InputStrategy* GetStrategy(const std::string& name);
@@ -27,6 +32,10 @@ public:
 	void ExecuteStrategy(const std::string& name);
 
 private:
-	InputStrategyFactory();
-	std::map<std::string, InputStrategy*> m_StrategyRegistry;
+	InputStrategyFactory() {}
+	std::map<std::string, std::function<InputStrategy*()>> m_StrategyRegistry;
 };
+
+#define REGISTER_STRATEGY_NAME(T) REG_STR_##T##_
+#define REGISTER_STRATEGY(T, key, ...) \
+static InputStrategyFactory::RegisterTool<T> REGISTER_STRATEGY_NAME(T)(key, ##__VA_ARGS__)

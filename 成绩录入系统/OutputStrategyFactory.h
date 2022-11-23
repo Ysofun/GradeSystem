@@ -1,9 +1,10 @@
 #pragma once
 #include <map>
 #include <string>
-#include "SingletonInstance.h"
 #include <vector>
+#include <functional>
 #include "ScoreValue.h"
+#include "SingletonInstance.h"
 
 class OutputStrategy;
 class Student;
@@ -13,15 +14,19 @@ class OutputStrategyFactory : public SingletonInstance<OutputStrategyFactory>
 {
 	friend class SingletonInstance<OutputStrategyFactory>;
 public:
-	~OutputStrategyFactory();
+	~OutputStrategyFactory() = default;
 	OutputStrategyFactory(const OutputStrategyFactory&) = delete;
 	const OutputStrategyFactory& operator=(const OutputStrategyFactory&) = delete;
 
-	/* 初始化所有输出策略 */
-	void InitStrategy();
-	
-	/* 将输出策略注册到map中 */
-	void RegisterStrategy(const std::string& name, OutputStrategy* strategy);
+	template<typename T>
+	struct RegisterTool
+	{
+		template<typename... Args>
+		RegisterTool(const std::string& name, Args... args)
+		{
+			OutputStrategyFactory::GetInstance()->m_StrategyRegistry.emplace(name, [=] { return new T(args...); });
+		}
+	};
 	
 	/* 获得策略 */
 	OutputStrategy* GetStrategy(const std::string& name);
@@ -31,6 +36,10 @@ public:
 	void ExecuteStrategy(const std::string& name, const std::string& Subject, const std::vector<Student>& Students);
 
 private:
-	OutputStrategyFactory();
-	std::map<std::string, OutputStrategy*> m_StrategyRegistry;
+	OutputStrategyFactory() {}
+	std::map<std::string, std::function<OutputStrategy*()>> m_StrategyRegistry;
 };
+
+#define REGISTER_STRATEGY_NAME(T) REG_STR_##T##_
+#define REGISTER_STRATEGY(T, key, ...) \
+static OutputStrategyFactory::RegisterTool<T> REGISTER_STRATEGY_NAME(T)(key, ##__VA_ARGS__)
