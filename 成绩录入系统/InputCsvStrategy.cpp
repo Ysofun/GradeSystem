@@ -37,10 +37,10 @@ void InputCsvStrategy::DoAlgorithm()
 			int chinese = fields.size() >= 2 ? atoi(fields[1].c_str()) : 0;
 			int english = fields.size() >= 3 ? atoi(fields[2].c_str()) : 0;
 			int math = fields.size() == 4? atoi(fields[3].c_str()) : 0;
-			StudentController::GetInstance()->InsertStudent(Student(fields[0], chinese, english, math));
+			StudentController::GetInstance().InsertStudent(Student(fields[0], chinese, english, math));
 		}
 	}
 
-	StudentController::GetInstance()->CalcStudent();
+	StudentController::GetInstance().CalcStudent();
 }
 

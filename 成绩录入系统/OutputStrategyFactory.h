@@ -14,7 +14,7 @@ class OutputStrategyFactory : public SingletonInstance<OutputStrategyFactory>
 {
 	friend class SingletonInstance<OutputStrategyFactory>;
 public:
-	~OutputStrategyFactory() = default;
+	~OutputStrategyFactory() {}
 	OutputStrategyFactory(const OutputStrategyFactory&) = delete;
 	const OutputStrategyFactory& operator=(const OutputStrategyFactory&) = delete;
 
@@ -24,7 +24,7 @@ public:
 		template<typename... Args>
 		RegisterTool(const std::string& name, Args... args)
 		{
-			OutputStrategyFactory::GetInstance()->m_StrategyRegistry.emplace(name, [=] { return new T(args...); });
+			OutputStrategyFactory::GetInstance().m_StrategyRegistry.emplace(name, [=] { return new T(args...); });
 		}
 	};
 	
@@ -41,5 +41,5 @@ private:
 };
 
 #define REGISTER_STRATEGY_NAME(T) REG_STR_##T##_
-#define REGISTER_STRATEGY(T, key, ...) \
+#define REGISTER_OUTPUT_STRATEGY(T, key, ...) \
 static OutputStrategyFactory::RegisterTool<T> REGISTER_STRATEGY_NAME(T)(key, ##__VA_ARGS__)

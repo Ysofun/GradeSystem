@@ -57,7 +57,7 @@ void InputJsonStrategy::DoAlgorithm()
 			}
 			else if (fields[0] == "}," || fields[0] == "}")
 			{
-				StudentController::GetInstance()->InsertStudent(student);
+				StudentController::GetInstance().InsertStudent(student);
 				bIsEffectiveName = false;
 				student.SetName("");
 				student.SetChinese(0);
@@ -66,6 +66,6 @@ void InputJsonStrategy::DoAlgorithm()
 			}
 		}
 	}
-	StudentController::GetInstance()->CalcStudent();
+	StudentController::GetInstance().CalcStudent();
 }
 

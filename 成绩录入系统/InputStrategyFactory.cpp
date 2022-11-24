@@ -4,10 +4,6 @@
 #include "InputCsvStrategy.h"
 #include "InputJsonStrategy.h"
 
-REGISTER_STRATEGY(InputConsoleStrategy, "Console");
-REGISTER_STRATEGY(InputCsvStrategy, "Csv");
-REGISTER_STRATEGY(InputJsonStrategy, "Json");
-
 InputStrategy* InputStrategyFactory::GetStrategy(const std::string& name)
 {
 	if (m_StrategyRegistry.find(name) == m_StrategyRegistry.end())
@@ -26,3 +22,7 @@ void InputStrategyFactory::ExecuteStrategy(const std::string& name)
 		Strategy->DoAlgorithm();
 	}
 }
+
+REGISTER_INPUT_STRATEGY(InputConsoleStrategy, "Console");
+REGISTER_INPUT_STRATEGY(InputCsvStrategy, "Csv");
+REGISTER_INPUT_STRATEGY(InputJsonStrategy, "Json");

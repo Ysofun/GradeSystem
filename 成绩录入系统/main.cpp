@@ -12,7 +12,7 @@ int main()
 {
 	StudentModel* studentModel = new StudentModel();
 	StudentView* studentView = new StudentView();
-	StudentController::GetInstance()->Init(studentModel, studentView);
+	StudentController::GetInstance().Init(studentModel, studentView);
 	studentView->GetDataInput();
 
 	return 0;

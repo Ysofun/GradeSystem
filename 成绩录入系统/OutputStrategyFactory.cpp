@@ -4,9 +4,6 @@
 #include "OutputCsvStrategy.h"
 #include "OutputHtmlStrategy.h"
 
-REGISTER_STRATEGY(OutputCsvStrategy, "Csv");
-REGISTER_STRATEGY(OutputHtmlStrategy, "Html");
-
 OutputStrategy* OutputStrategyFactory::GetStrategy(const std::string& name)
 {
 	if (m_StrategyRegistry.find(name) == m_StrategyRegistry.end())
@@ -33,3 +30,6 @@ void OutputStrategyFactory::ExecuteStrategy(const std::string& name, const std::
 		Strategy->DoAlgorithm(Subject, Students);
 	}
 }
+
+REGISTER_OUTPUT_STRATEGY(OutputCsvStrategy, "Csv");
+REGISTER_OUTPUT_STRATEGY(OutputHtmlStrategy, "Html");
